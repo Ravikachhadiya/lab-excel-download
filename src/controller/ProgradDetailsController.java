@@ -16,12 +16,15 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
+import model.Prograd;
+import service.ExcelGenerator;
+
 
 @WebServlet(urlPatterns = { "/prograd" })
 public class ProgradDetailsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 // Uncomment the below line
-	//List<Prograd> list = new ArrayList<Prograd>();
+	List<Prograd> list = new ArrayList<Prograd>();
 	RequestDispatcher rd;
 	public ProgradDetailsController() {
 		super();
@@ -36,7 +39,6 @@ public class ProgradDetailsController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		/* uncomment the code below to see the final output
 		String name = request.getParameter("name");
 		String id = request.getParameter("id");
 		String rate=request.getParameter("rating");
@@ -89,6 +91,6 @@ public class ProgradDetailsController extends HttpServlet {
 				request.setAttribute("upload_message", "File downloaded successfully");
 				rd = this.getServletContext().getRequestDispatcher("/WEB-INF/views/result.jsp");
 				rd.forward(request, response);
-*/
+
 	}
 }

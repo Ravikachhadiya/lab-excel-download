@@ -1,5 +1,5 @@
 package service;
-/*
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -24,16 +24,34 @@ public class ExcelGenerator {
 
 
 			
-			// Type your code here
+			HSSFWorkbook hwb = new HSSFWorkbook();
 			
+			HSSFSheet sheet = hwb.createSheet();
+			HSSFRow hrow = sheet.createRow(0);
+			hrow.createCell(0).setCellValue("Id");
+			hrow.createCell(1).setCellValue("Name");
+			hrow.createCell(2).setCellValue("Rate");
+			hrow.createCell(3).setCellValue("Comment");
+			hrow.createCell(4).setCellValue("Recommend");
+			int i =0;
+			for(Prograd pro:list) {
+				HSSFRow dRow = sheet.createRow(++i);
+				dRow.createCell(0).setCellValue(pro.getId());
+				dRow.createCell(1).setCellValue(pro.getName());
+				dRow.createCell(2).setCellValue(pro.getRate());
+				dRow.createCell(3).setCellValue(pro.getComment());
+				dRow.createCell(4).setCellValue(pro.getRecommend());
 		
 			}
+			
+			String filename = "E:/Information_Technology/progard.xls";
 			// Do not modify the lines given below
 			 out = new FileOutputStream(filename);
 			hwb.write(out);
 		
 			return hwb;
-			}
+			
+		}
 		catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -44,4 +62,3 @@ public class ExcelGenerator {
 		
 	}
 }
-*/
